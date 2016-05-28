@@ -21,5 +21,9 @@
     "gulp-watch": "*",
     "imagemin-pngquant": "*",
     "rimraf": "*"
-  }
+  },
+    "scripts": {
+        "start": "gulp",
+        "build": "gulp clean; gulp build"
+    }
 }
