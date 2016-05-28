@@ -67,7 +67,7 @@ gulp.task('js:build', function () {
 gulp.task('style:build', function () {
     gulp.src(path.src.style) 
         .pipe(sourcemaps.init()) 
-        .pipe(sass()) /
+        .pipe(sass())
         .pipe(prefixer()) 
         .pipe(cssmin()) 
         .pipe(sourcemaps.write())
