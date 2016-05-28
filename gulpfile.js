@@ -40,7 +40,7 @@ var path = {
 };
 
 var config = {
-    server: ["./build", "./bower_components"],
+    server: ['./bower_components', './build'],
     tunnel: true,
     host: 'localhost',
     port: 9000,

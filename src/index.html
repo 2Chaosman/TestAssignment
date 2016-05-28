@@ -10,12 +10,12 @@
 
     <title>Тестовое задание</title>
       
-    <link href="/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="/font-awesome/css/font-awesome.min.css" rel="stylesheet">
-    <link href="/bootstrap-social/bootstrap-social.css" rel="stylesheet">
+    <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="bootstrap-social/bootstrap-social.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="/css/main.css" rel="stylesheet">
+    <link href="css/main.css" rel="stylesheet">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -93,30 +93,36 @@
                         </div>
                     </div>
                     <div class="form-group" ng-show="!ResultsForm.marksnumber.$error.required && ResultsForm.marksnumber.$dirty">
-                        <label for="marks" class="col-sm-2 control-label">Оценки</label>
-                        <div class="col-sm-8">
-                            <input type="number" min="1" class="form-control" id="marks" name="marks" placeholder="Введите оценки" ng-model="student.marks" required>
+                        <div class="col-sm-offset-2 col-sm-6">
+                            Ввести оценки?
+                            <input type="button" class="btn btn-primary" value="Да" onclick="enterMarks()">
                         </div>
                     </div>
-                    <div class="form-group" ng-class="{'has-error': ResultsForm.missedplus.$error.required && !ResultsForm.missedplus.$pristine}">
-                        <label for="missed-pos" class="col-sm-2 control-label">Количество пропущенных предметов по уважительной причине</label>
+                    <div class="form-group" ng-show="!ResultsForm.marksnumber.$error.required && ResultsForm.marksnumber.$dirty">
+                        <label for="marks" class="col-sm-2 control-label">Оценки</label>
+                        <div class="col-sm-8" id="addmarks">
+                            <!--<input type="number" min="1" class="form-control" id="marks" name="marks" placeholder="Введите оценки" ng-model="student.marks" required>-->
+                        </div>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': ResultsForm.allLessons.$error.required && !ResultsForm.allLessons.$pristine}">
+                        <label for="allLessons" class="col-sm-2 control-label">Сколько всего занятий</label>
                         <div class="col-sm-8">
-                            <input type="number" min="1" class="form-control" id="missedplus" name="missedplus" placeholder="Сколько пропущено предметов?" ng-model="student.missedplus" required>
-                            <span class="help-block" ng-show="ResultsForm.missedplus.$invalid && !ResultsForm.missedplus.$pristine">Введите число больше нуля</span>
-                            <span class="help-block" ng-show="ResultsForm.missedplus.$error.required && !ResultsForm.missedplus.$pristine">Сколько пропущенно предметов?</span>
+                            <input type="number" min="1" class="form-control" id="allLessons" name="allLessons" placeholder="Сколько всего занятий?" ng-model="student.allLessons" required>
+                            <span class="help-block" ng-show="ResultsForm.allLessons.$invalid && !ResultsForm.allLessons.$pristine">Введите число больше нуля</span>
+                            <span class="help-block" ng-show="ResultsForm.allLessons.$error.required && !ResultsForm.allLessons.$pristine">Сколько всего занятий?</span>
                         </div>
                     </div>
                     <div class="form-group" ng-class="{'has-error': ResultsForm.missedminus.$error.required && !ResultsForm.missedminus.$pristine}">
-                        <label for="missed-pos" class="col-sm-2 control-label">Количество пропущенных предметов по неуважительной причине</label>
+                        <label for="missedminus" class="col-sm-2 control-label">Количество пропущенных предметов по неуважительной причине</label>
                         <div class="col-sm-8">
-                            <input type="number" min="1" class="form-control" id="missedminus" name="missedminus" placeholder="Сколько пропущено предметов?" ng-model="student.missedminus" required>
+                            <input type="number" min="0" class="form-control" id="missedminus" name="missedminus" placeholder="Сколько пропущено предметов?" ng-model="student.missedminus" required>
                             <span class="help-block" ng-show="ResultsForm.missedminus.$invalid && !ResultsForm.missedminus.$pristine">Введите число больше нуля</span>
                             <span class="help-block" ng-show="ResultsForm.missedminus.$error.required && !ResultsForm.missedminus.$pristine">Сколько пропущенно предметов?</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-offset-2 col-sm-6">
-                            <button type="submit" class="btn btn-primary" ng-disabled="ResultsForm.$invalid">Отправить</button>
+                            <button type="submit" class="btn btn-primary" ng-disabled="ResultsForm.$invalid" onclick="toGrade()">Отправить</button>
                         </div>
                     </div>
                 </form>
@@ -127,7 +133,7 @@
                 <p>Посещает: {{student.lesson}}</p>
                 <p>Количество оценок: {{student.marksnumber}}</p>
                  <p>Количество пропущенных занятий по неуважительной причине: {{student.missedminus}}</p>
-                 <h4>Результат: </h4>
+                 <h4 id="result"></h4>
             </div>
        </div>
     </div>
@@ -168,9 +174,9 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="/jquery/dist/jquery.min.js"></script>
-    <script src="/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="/angular/angular.min.js"></script>
-    <script src="/js/main.js"></script>
+    <script src="jquery/dist/jquery.min.js"></script>
+    <script src="bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="angular/angular.min.js"></script>
+    <script src="js/main.js"></script>
   </body>
 </html>
