@@ -20,7 +20,6 @@ function addMarkFields() {
     /* Добавление полей для выставление оценок */
     
     var numberOfMarks = document.getElementById("marksnumber").value;
-    var inputContainer = document.createDocumentFragment();
     var markBegin = document.getElementById("addmarks")
     markBegin.innerHTML = '';
     
