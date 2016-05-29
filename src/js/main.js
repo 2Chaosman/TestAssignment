@@ -16,7 +16,7 @@ angular.module('testAssignment', [])
                }])
 ;
 
-function enterMarks() {
+function addMarkFields() {
     /* Добавление полей для выставление оценок */
     
     var numberOfMarks = document.getElementById("marksnumber").value;
