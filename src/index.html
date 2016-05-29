@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="testAssignment">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,7 +10,7 @@
     <meta name="author" content="">
 
     <title>Тестовое задание</title>
-      
+
     <link href="bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
     <link href="bootstrap-social/bootstrap-social.css" rel="stylesheet">
@@ -23,51 +24,51 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-  </head>
+</head>
 
-  <body>
+<body>
 
     <nav class="navbar navbar-inverse navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Тестовое задание</a>
-        </div>
-        <div id="navbar" class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Студенты <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#">Студент 1</a></li>
-                    <li><a href="#">Студент 2</a></li>
-                    <li><a href="#">Студент 3</a></li>
-                    <li><a href="#">Студент 4</a></li>
-                    <li><a href="#">Студент 5</a></li>
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Тестовое задание</a>
+            </div>
+            <div id="navbar" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Студенты <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Студент 1</a></li>
+                            <li><a href="#">Студент 2</a></li>
+                            <li><a href="#">Студент 3</a></li>
+                            <li><a href="#">Студент 4</a></li>
+                            <li><a href="#">Студент 5</a></li>
+                        </ul>
+                    </li>
                 </ul>
-            </li>
-          </ul>
+            </div>
         </div>
-      </div>
     </nav>
 
     <div class="container" ng-controller="testController">
         <div class="row row-content">
-           <div class="col-xs-12">
-              <h3>Заполните информацию о студенте</h3> 
-           </div>
+            <div class="col-xs-12">
+                <h3>Заполните информацию о студенте</h3>
+            </div>
             <div class="col-xs-12 col-sm-9">
-                <form class="form-horizontal" name="ResultsForm" role="form" ng-submit="sendResults()" novalidate>
+                <form class="form-horizontal" name="ResultsForm" id="ResultsForm" role="form" ng-submit="sendResults()" method="post" action="results.php" novalidate>
                     <div class="form-group" ng-class="{'has-error': ResultsForm.firstname.$error.required && !ResultsForm.firstname.$pristine}">
                         <label for="firstname" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Введите имя" ng-model="student.firstname" required>
-                        <span class="help-block" ng-show="ResultsForm.firstname.$error.required && !ResultsForm.firstname.$pristine">Обязательное поле</span>
+                            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="Введите имя" ng-model="student.firstname" required>
+                            <span class="help-block" ng-show="ResultsForm.firstname.$error.required && !ResultsForm.firstname.$pristine">Обязательное поле</span>
                         </div>
                     </div>
                     <div class="form-group" ng-class="{'has-error': ResultsForm.lastname.$error.required && !ResultsForm.lastname.$pristine}">
@@ -80,8 +81,8 @@
                     <div class="form-group" ng-class="{'has-error': ResultsForm.lesson.$error.required && !ResultsForm.lesson.$pristine}">
                         <label for="lesson" class="col-sm-2 control-label">Название предмета</label>
                         <div class="col-sm-8">
-                        <input type="text" class="form-control" id="lesson" name="lesson" placeholder="Введите название предмета" ng-model="student.lesson" required>
-                        <span class="help-block" ng-show="ResultsForm.lesson.$error.required && !ResultsForm.lesson.$pristine">Введите название предмета.</span>
+                            <input type="text" class="form-control" id="lesson" name="lesson" placeholder="Введите название предмета" ng-model="student.lesson" required>
+                            <span class="help-block" ng-show="ResultsForm.lesson.$error.required && !ResultsForm.lesson.$pristine">Введите название предмета.</span>
                         </div>
                     </div>
                     <div class="form-group" ng-class="{'has-error': ResultsForm.marksnumber.$error.required && !ResultsForm.marksnumber.$pristine}">
@@ -127,21 +128,22 @@
                     </div>
                 </form>
             </div>
-             <div class="col-xs-12 col-sm-3">
+            <div class="col-xs-12 col-sm-3">
                 <h3>Студент:</h3>
                 <p>{{student.firstname}} {{student.lastname | uppercase }}</p>
                 <p>Посещает: {{student.lesson}}</p>
                 <p>Количество оценок: {{student.marksnumber}}</p>
-                 <p>Количество пропущенных занятий по неуважительной причине: {{student.missedminus}}</p>
-                 <h4 id="result"></h4>
+                <p>Количество пропущенных занятий по неуважительной причине: {{student.missedminus}}</p>
+                <h4 id="result"></h4>
             </div>
-       </div>
+        </div>
     </div>
-      
-    
-   <footer class="row-footer">
+    <div id="serverResult"></div>
+
+
+    <footer class="row-footer">
         <div class="container">
-            <div class="row">             
+            <div class="row">
                 <div class="col-xs-5 col-xs-offset-1 col-sm-2 col-sm-offset-1">
                     <h5>Links</h5>
                     <ul class="list-unstyled">
@@ -178,5 +180,6 @@
     <script src="bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="angular/angular.min.js"></script>
     <script src="js/main.js"></script>
-  </body>
+</body>
+
 </html>
