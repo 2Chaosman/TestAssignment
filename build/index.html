@@ -63,7 +63,7 @@
                 <h3>Заполните информацию о студенте</h3>
             </div>
             <div class="col-xs-12 col-sm-9">
-                <form class="form-horizontal" name="ResultsForm" id="ResultsForm" role="form" ng-submit="sendResults()" method="post" action="results.php" novalidate>
+                <form class="form-horizontal" name="ResultsForm" id="ResultsForm" role="form" ng-submit="sendResults()" method="post" novalidate>
                     <div class="form-group" ng-class="{'has-error': ResultsForm.firstname.$error.required && !ResultsForm.firstname.$pristine}">
                         <label for="firstname" class="col-sm-2 control-label">Имя</label>
                         <div class="col-sm-8">
