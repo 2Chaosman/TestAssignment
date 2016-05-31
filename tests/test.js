@@ -3,8 +3,8 @@ test("a basic test example", function () {
     equal(value, "hello", "We expect value to be hello");
 });
 
-function AssignNumber(x) {
-    document.getElementById("marksnumber").value = x;
+function AssignNumber(x, id) {
+    document.getElementById(id).value = x;
 }
 
 function AssignNumbertToMarkField() {
@@ -15,7 +15,7 @@ function AssignNumbertToMarkField() {
 }
 
 test("Тест на добавление полей", function () {
-    AssignNumber(4);
+    AssignNumber(4, "marksnumber");
     equal(document.getElementById("marksnumber").value, 4);
 
     addMarkFields();
@@ -24,7 +24,7 @@ test("Тест на добавление полей", function () {
 });
 
 test("Тест на получение средней оценки", function() {
-    AssignNumber(4);
+    AssignNumber(4, "marksnumber");
     addMarkFields();
     AssignNumbertToMarkField(1,3,4,4)
     
