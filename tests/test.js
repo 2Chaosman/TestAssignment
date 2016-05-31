@@ -26,8 +26,16 @@ test("Тест на добавление полей", function () {
 test("Тест на получение средней оценки", function() {
     AssignNumber(4, "marksnumber");
     addMarkFields();
-    AssignNumbertToMarkField(1,3,4,4)
+    AssignNumbertToMarkField(1,3,4,4);
     
-    equal(averageMark(), 3, "Среднее значение верное")
+    equal(averageMark(), 3, "Среднее значение верное");
+})
+
+test("Тест выставления оценки", function() {
+    var x = "<p style='color:green; font-weight:bold'>Результат: Зачтено</p>";
+    var y = "<p style='color:red; font-weight:bold'>Результат: Незачтено</p>";
     
+    toGrade();
+    equal(document.getElementById("result").innerHTML, x, "Оценка 'Зачтено' выставлена успешно")
+    equal(document.getElementById("result").innerHTML, y, "Оценка 'Незачтено' выставлена успешно")
 })
