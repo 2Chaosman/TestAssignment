@@ -22,14 +22,14 @@ var path = {
         img: 'build/img/',
         fonts: 'build/fonts/'
     },
-    src: { 
-        html: 'src/*.html', 
+    src: {
+        html: 'src/*.html',
         js: 'src/js/main.js',
         style: 'src/style/main.scss',
-        img: 'src/img/**/*.*', 
+        img: 'src/img/**/*.*',
         fonts: 'src/fonts/**/*.*'
     },
-    watch: { 
+    watch: {
         html: 'src/**/*.html',
         js: 'src/js/**/*.js',
         style: 'src/style/**/*.scss',
@@ -48,46 +48,56 @@ var config = {
 };
 
 gulp.task('html:build', function () {
-    gulp.src(path.src.html) 
+    gulp.src(path.src.html)
         .pipe(rigger())
-        .pipe(gulp.dest(path.build.html)) 
-        .pipe(reload({stream: true})); 
+        .pipe(gulp.dest(path.build.html))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 gulp.task('js:build', function () {
-    gulp.src(path.src.js) 
-        .pipe(rigger()) 
-        .pipe(sourcemaps.init()) 
-        .pipe(uglify()) 
-        .pipe(sourcemaps.write()) 
-        .pipe(gulp.dest(path.build.js)) 
-        .pipe(reload({stream: true}));
+    gulp.src(path.src.js)
+        .pipe(rigger())
+        .pipe(sourcemaps.init())
+        .pipe(uglify())
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(path.build.js))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 gulp.task('style:build', function () {
-    gulp.src(path.src.style) 
-        .pipe(sourcemaps.init()) 
+    gulp.src(path.src.style)
+        .pipe(sourcemaps.init())
         .pipe(sass())
-        .pipe(prefixer()) 
-        .pipe(cssmin()) 
+        .pipe(prefixer())
+        .pipe(cssmin())
         .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) 
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(path.build.css))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
 gulp.task('image:build', function () {
-    gulp.src(path.src.img) 
-        .pipe(imagemin({ 
+    gulp.src(path.src.img)
+        .pipe(imagemin({
             progressive: true,
-            svgoPlugins: [{removeViewBox: false}],
+            svgoPlugins: [{
+                removeViewBox: false
+            }],
             use: [pngquant()],
             interlaced: true
         }))
-        .pipe(gulp.dest(path.build.img)) 
-        .pipe(reload({stream: true}));
+        .pipe(gulp.dest(path.build.img))
+        .pipe(reload({
+            stream: true
+        }));
 });
 
-gulp.task('fonts:build', function() {
+gulp.task('fonts:build', function () {
     gulp.src(path.src.fonts)
         .pipe(gulp.dest(path.build.fonts))
 });
@@ -100,20 +110,20 @@ gulp.task('build', [
     'image:build'
 ]);
 
-gulp.task('watch', function(){
-    watch([path.watch.html], function(event, cb) {
+gulp.task('watch', function () {
+    watch([path.watch.html], function (event, cb) {
         gulp.start('html:build');
     });
-    watch([path.watch.style], function(event, cb) {
+    watch([path.watch.style], function (event, cb) {
         gulp.start('style:build');
     });
-    watch([path.watch.js], function(event, cb) {
+    watch([path.watch.js], function (event, cb) {
         gulp.start('js:build');
     });
-    watch([path.watch.img], function(event, cb) {
+    watch([path.watch.img], function (event, cb) {
         gulp.start('image:build');
     });
-    watch([path.watch.fonts], function(event, cb) {
+    watch([path.watch.fonts], function (event, cb) {
         gulp.start('fonts:build');
     });
 });

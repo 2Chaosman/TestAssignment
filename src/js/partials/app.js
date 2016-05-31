@@ -48,3 +48,19 @@ function toGrade() {
     } else
         resultElem.insertAdjacentHTML("beforeEnd", "<p style='color:red; font-weight:bold'>Результат: Незачтено</p>");
 }
+
+function sendToServer() {
+    var msg = $('#ResultsForm').serialize();
+    $.ajax({
+        type: 'POST',
+        url: 'http://localhost:9000/res.php',
+        data: msg,
+        success: function (data) {
+            $('#serverResult').html(data);
+        },
+        error: function (xhr, str) {
+            alert('Возникла ошибка: ' + xhr.responseCode);
+        }
+    });
+
+}
