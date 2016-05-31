@@ -7,6 +7,13 @@ function AssignNumber(x) {
     document.getElementById("marksnumber").value = x;
 }
 
+function AssignNumbertToMarkField() {
+    var x = document.getElementById("addmarks").getElementsByTagName("*");
+    for (i = 0; i < x.length; i++) {
+        x[i] = arguments[0];
+    }
+}
+
 test("Тест на добавление полей", function () {
     AssignNumber(4);
     equal(document.getElementById("marksnumber").value, 4);
@@ -15,3 +22,12 @@ test("Тест на добавление полей", function () {
     var n = $('#addmarks').children().length;
     equal(n, 4, 'Добавлено 4 поля для ввода оценок');
 });
+
+test("Тест на получение средней оценки", function() {
+    AssignNumber(4);
+    addMarkFields();
+    averageMark();
+    
+    equal()
+    
+})
