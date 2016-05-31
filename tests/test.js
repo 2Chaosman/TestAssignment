@@ -10,7 +10,7 @@ function AssignNumber(x) {
 function AssignNumbertToMarkField() {
     var x = document.getElementById("addmarks").getElementsByTagName("*");
     for (i = 0; i < x.length; i++) {
-        x[i] = arguments[0];
+        x[i] = arguments[i];
     }
 }
 
