@@ -26,8 +26,8 @@ test("Тест на добавление полей", function () {
 test("Тест на получение средней оценки", function() {
     AssignNumber(4);
     addMarkFields();
-    averageMark();
+    AssignNumbertToMarkField(1,3,4,4)
     
-    equal()
+    equal(averageMark(), 3, "Среднее значение верное")
     
 })
